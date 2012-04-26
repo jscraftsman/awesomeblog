@@ -24,12 +24,18 @@ class PostsController < ApplicationController
   end
 
   def update
-
+    @post = Post.find(params[:id])
+    original_title = @post.title
+    if @post.update_attributes(params[:post])
+      redirect_to posts_path, :notice => "'#{original_title}' was updated!"
+    else
+      render "edit"
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path, :notice => "#{@post.title} was removed!"
+    redirect_to posts_path, :notice => "'#{@post.title}' was removed!"
   end
 end

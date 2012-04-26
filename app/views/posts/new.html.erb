@@ -1,5 +1,12 @@
 <h1>Add a new post</h1>
 <%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <p>
   <%= f.label :title %><br />
   <%= f.text_field :title %>
