@@ -1,2 +1,17 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Blog Posts</h1>
+<% flash.each do |key, value| %>
+  <%= value %>
+<% end %>
+<% @posts.each do |post| %>
+<div>
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= post.content %></p>
+  <span>
+    <%= link_to "Edit", edit_post_path(post) %> | 
+    <%= link_to "Delete", post, :confirm => "Are you sure you want to remove '#{post.title}'?", :method => "delete" %>
+</span>
+
+  <hr />
+</div>
+<% end %>
+<%= link_to "Add a post", new_post_path %>
