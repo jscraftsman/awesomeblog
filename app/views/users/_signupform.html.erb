@@ -1,0 +1,32 @@
+<h2>Create a new Account</h2>
+<%= form_for @user, :url => {:action => "create_user" } do |f| %>
+  <% if @user.errors.any? %>
+    <h2>Signup failed!</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+  <%= f.label :username %><br />
+  <%= f.text_field :username %>
+  </p>
+  <p>
+  <%= f.label :email %><br />
+  <%= f.text_field :email %>
+  </p>
+  <p>
+  <%= f.label :password %><br /> 
+  <%= f.password_field :password %>
+  </p>
+  <p>
+  <%= f.label :password_confirmation %><br /> 
+  <%= f.password_field :password_confirmation %>
+  </p>
+
+  <%= f.submit "Signup" %>
+<% end %>
+  
+

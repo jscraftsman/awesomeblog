@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_filter :checker, except: [:show]
   def index
+    checker
     @posts = Post.all
   end
   def show
@@ -37,5 +39,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path, :notice => "'#{@post.title}' was removed!"
+  end
+
+  def checker
+    if session[:user_id] == nil
+      redirect_to index_path, :notice => "Please login!"
+    end
   end
 end
