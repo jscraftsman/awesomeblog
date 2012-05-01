@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def index
     @user = User.new                        #declared a lot in this controller!
     @loginuser = User.new                   #disobeyed the DRY 
+    if session[:user_id] != nil
+      redirect_to posts_path
+    end
   end
 
   def create_user
