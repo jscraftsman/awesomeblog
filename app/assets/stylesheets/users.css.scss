@@ -1,3 +1,94 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+}
+
+#login_box{
+  margin-top: 2em;
+  float:right;
+}
+
+#signup_box{
+  float:left;
+}
+.form form{
+  margin:0 auto;
+  width:400px;
+  padding:14px;
+}
+
+.form{
+  border:solid 2px #b7ddf2;
+  border-radius: 10px;
+  background:#ebf4fb;
+}
+.form h1 {
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+.form p{
+  font-size:11px;
+  color:#666666;
+  margin-bottom:20px;
+  border-bottom:solid 1px #b7ddf2;
+  padding-bottom:10px;
+}
+.form label{
+  display:block;
+  font-weight:bold;
+  text-align:right;
+  width:170px;
+  float:left;
+}
+.form .small{
+  color:#666666;
+  display:block;
+  font-size:11px;
+  font-weight:normal;
+  text-align:right;
+  width:170px;
+}
+.form input{
+  float:left;
+  font-size:12px;
+  padding:4px 2px;
+  border:solid 1px #aacfe4;
+  width:200px;
+  margin:2px 0 20px 10px;
+}
+.form input[type="submit"]{
+  clear:both;
+  margin-left:150px;
+  width:125px;
+  height:2em;
+  border: 1px #666;
+  border-radius: 10px;
+  background:#666666 url(img/button.png) no-repeat;
+  text-align:center;
+  color:#FFFFFF;
+  font-size:1em;
+  font-weight:bold;
+}
+
+.form input[type="submit"]:hover{
+  background: #333;
+}
+
+.form ul.small.errors{
+  font-size: 1em;
+  padding-left: 2em;
+  padding-bottom: 1em;
+  color: #f00;
+  text-align: left;
+}
+.flash_notice{
+  color: #f00;
+  text-align: center;
+  font-size: 1em;
+  padding-bottom: 1em;
+}
