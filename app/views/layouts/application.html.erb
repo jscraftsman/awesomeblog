@@ -10,7 +10,7 @@
     <div id="container">
       <% if current_user %>
         <div id="user_nav" class="box">
-          <span id="user_status">Logged in as <i><%= current_user.username %></i>,</span>
+          <span id="user_status">Logged in as <strong><i><%= current_user.username %></i></strong>,</span>
             <span id="new_post">
               <%= link_to "New Post", new_post_path, :class =>"button" %>
             </span>

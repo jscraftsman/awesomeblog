@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to posts_path, :flash => {:success => "Login successful!"}
+      redirect_to posts_path, :flash => {:info => "Login successful!"}
     else
       #redirect_to index_path, :notice => "Incorrect username or password!"
       flash[:error] = "Invalid username or password"
