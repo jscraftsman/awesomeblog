@@ -1,3 +1,7 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
-<small><%= link_to "back", :back%></small>
+<div class="view">
+  <div class="post box">
+    <h1 class="post_title"><%= @post.title %></h1>
+    <p class="post_content"><%= @post.content %></p>
+    <span class="post_options"><%= link_to "back", :back, :class => "button" %></div>
+  </div>
+</div>

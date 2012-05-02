@@ -1,16 +1,16 @@
 <h1>Dashboard</h1>
 <% flash.each do |key, value| %>
-  <%= value %>
+  <div class="flash <%= key %>"><%= value %></div>
 <% end %>
 <% @posts.each do |post| %>
-<div>
-  <h2><%= link_to post.title, post %></h2>
-  <p><%= post.content %></p>
-  <span>
-    <%= link_to "Edit", edit_post_path(post) %> | 
-    <%= link_to "Delete", post, :confirm => "Are you sure you want to remove '#{post.title}'?", :method => "delete" %>
-</span>
+  <div class = "post box">
+    <h2><%= link_to post.title, post, :class => "post_title" %></h2>
+    <p class="post_content"><%= post.content %></p>
+    <div class = "post_options">
+      <%= link_to "View", post, :class => "button" %>
+      <%= link_to "Edit", edit_post_path(post), :class => "button" %>
+      <%= link_to "Delete", post, :confirm => "Are you sure you want to remove '#{post.title}'?", :method => "delete", :class => "button" %>
+    </div>
+  </div>
 
-  <hr />
-</div>
 <% end %>

@@ -2,16 +2,16 @@
   <%= form_for @loginuser, :url => {:action => "login_user" } do |f| %>
     <h2>Login</h2>
     <p>If you already have an account, login here!</p>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :class => "flash #{name}" %>
+    <% end %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username, :placeholder => "Username"%>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, :placeholder => "Password" %>
+
+    <center><%= f.submit "Login" %></center>
   <% end %>
-
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <center><%= f.submit "Login" %></center>
-<% end %>
 </div>

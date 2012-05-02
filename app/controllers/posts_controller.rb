@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     if @post.save
-      redirect_to posts_path, :notice => "Your post was added!"
+      redirect_to posts_path, :flash => {:success => "Your post was added!"}
     else
       render "new"
     end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     original_title = @post.title
     if @post.update_attributes(params[:post])
-      redirect_to posts_path, :notice => "'#{original_title}' was updated!"
+      redirect_to posts_path, :flash => {:info => "'#{original_title}' was updated!"}
     else
       render "edit"
     end
@@ -38,12 +38,12 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path, :notice => "'#{@post.title}' was removed!"
+    redirect_to posts_path, :flash => {:info => "'#{@post.title}' was removed!"}
   end
 
   def checker
     if session[:user_id] == nil
-      redirect_to index_path, :notice => "Please login!"
+      redirect_to index_path, :flash => {:error => "Please login!"}
     end
   end
 end

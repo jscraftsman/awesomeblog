@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     @loginuser = User.new
     if @user.save
       session[:user_id] = @user.id
-      redirect_to posts_path, :notice => "Account successfully created!"
+      redirect_to posts_path, :flash => {:success => "Account successfully created!"}
+      
     else
       render "index"
     end
@@ -27,10 +28,10 @@ class UsersController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to posts_path, :notice => "Login successful!"
+      redirect_to posts_path, :flash => {:success => "Login successful!"}
     else
       #redirect_to index_path, :notice => "Incorrect username or password!"
-      flash.now.notice = "Invalid username or password"
+      flash[:error] = "Invalid username or password"
       render "index"
     end
   end
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
   def destroy
     if session[:user_id] != nil
       session[:user_id] = nil
-      redirect_to index_path, :notice => "Logged out!"
+      redirect_to index_path, :flash => { :info => "Logged out!"}
     else
       redirect_to index_path
     end
