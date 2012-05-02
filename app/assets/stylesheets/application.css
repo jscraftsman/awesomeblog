@@ -20,7 +20,23 @@ html{
 }
 body{
   height: 100%;
-  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #b7ddf2 90%);
+  /* IE10 */ 
+  background-image: -ms-linear-gradient(top, #FFFFFF 0%, #B7DDF2 90%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #B7DDF2 90%);
+
+  /* Opera */ 
+  background-image: -o-linear-gradient(top, #FFFFFF 0%, #B7DDF2 90%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(.90, #B7DDF2));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #B7DDF2 90%);
+
+  /* Proposed W3C Markup */ 
+  background-image: linear-gradient(top, #FFFFFF 0%, #B7DDF2 90%);
   background-attachment:fixed;
 }
 
@@ -132,4 +148,9 @@ body{
 
 .view{
   padding-top: 1em;
+}
+
+#footer{
+clear: both;
+float: right;
 }

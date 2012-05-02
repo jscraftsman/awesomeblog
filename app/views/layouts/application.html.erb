@@ -11,20 +11,22 @@
       <% if current_user %>
         <div id="user_nav" class="box">
           <span id="user_status">Logged in as <strong><i><%= current_user.username %></i></strong>,</span>
-            <span id="new_post">
-              <%= link_to "New Post", new_post_path, :class =>"button" %>
-            </span>
-            <span id="dashboard">
-              <%= link_to "Dashboard", posts_path,:class => "button" %>
-            </span>
-            <span id="log_out">
-              <%= link_to "Log-out", log_out_path, :class => "button" %>
-            </span>
+          <span id="new_post">
+            <%= link_to "New Post", new_post_path, :class =>"button" %>
+          </span>
+          <span id="dashboard">
+            <%= link_to "Dashboard", posts_path,:class => "button" %>
+          </span>
+          <span id="log_out">
+            <%= link_to "Log-out", log_out_path, :class => "button" %>
+          </span>
         </div>
       <% end %>
       <div id="content">
         <%= yield %>
-      </div>
+      <div id="footer">Copyright 2012 Gervel Giva</div>
     </div>
-  </body>
+
+  </div>
+</body>
 </html>

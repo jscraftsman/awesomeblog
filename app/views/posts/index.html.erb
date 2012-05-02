@@ -2,15 +2,21 @@
 <% flash.each do |key, value| %>
   <div class="flash <%= key %>"><%= value %></div>
 <% end %>
-<% @posts.each do |post| %>
-  <div class = "post box">
-    <h2><%= link_to post.title, post, :class => "post_title" %></h2>
-    <p class="post_content"><%= post.content %></p>
-    <div class = "post_options">
-      <%= link_to "View", post, :class => "button" %>
-      <%= link_to "Edit", edit_post_path(post), :class => "button" %>
-      <%= link_to "Delete", post, :confirm => "Are you sure you want to remove '#{post.title}'?", :method => "delete", :class => "button" %>
-    </div>
-  </div>
-
+<% if current_user.posts.count > 0 %>
+  <% @posts.each do |post| %>
+    <% if post.user_id == current_user.id %>
+      <div class = "post box">
+        <h2><%= link_to post.title, post, :class => "post_title" %></h2>
+        <p class="post_content"><%= post.content %></p>
+        <span><h3>Author: <strong><%= post.user.username %></strong></h3>Date Created: <%= post.created_at %></span>
+        <div class = "post_options">
+          <%= link_to "View", post, :class => "button" %>
+          <%= link_to "Edit", edit_post_path(post), :class => "button" %>
+          <%= link_to "Delete", post, :confirm => "Are you sure you want to remove '#{post.title}'?", :method => "delete", :class => "button" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="flash warning"><h1>You dont have any post! Create a new one now!</h1></div>
 <% end %>

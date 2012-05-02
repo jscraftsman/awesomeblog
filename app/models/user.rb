@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   attr_accessor :password
   before_save :encrypt_password
+  has_many :posts, :dependent => :destroy 
 
   validates :username, :email, :password, :presence => true;
   validates :username, :email, :uniqueness => true;

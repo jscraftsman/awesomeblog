@@ -2,6 +2,7 @@
   <div class="post box">
     <h1 class="post_title"><%= @post.title %></h1>
     <p class="post_content"><%= @post.content %></p>
+    <span><h3>Author: <strong><%= @post.user.username %></strong></h3>Date Created: <%= @post.created_at %></span>
     <span class="post_options"><%= link_to "back", :back, :class => "button" %></div>
   </div>
 </div>
